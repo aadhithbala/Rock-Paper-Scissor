@@ -12,4 +12,14 @@ const getComputerChoice = function () {
   }
 };
 
-getComputerChoice();
+const capitalize = function (playerChoice) {
+  const playerChoiceLowerCase = playerChoice.toLowerCase();
+  return (
+    playerChoiceLowerCase.charAt(0).toUpperCase() +
+    playerChoiceLowerCase.slice(1)
+  );
+};
+
+getComputerChoice(); //Invoking Function for computer choice
+
+const playerSelection = capitalize(prompt('Enter your choice:')); // Prompting the user for users choice
