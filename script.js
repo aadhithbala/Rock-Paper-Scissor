@@ -61,14 +61,14 @@ const winner = function (playerScore, computerScore) {
 
 const game = function () {
   for (let i = 1; i < 6; i++) {
-    const computerSelection = getComputerChoice(); //Invoking Function for computer choice
+    const computerSelection = getComputerChoice();
 
-    const playerSelection = capitalize(prompt('Enter your choice:')); // Prompting the user for users choice
+    const playerSelection = capitalize(prompt('Enter your choice:'));
 
-    playRound(playerSelection, computerSelection); //Invoking function to play a round of game
+    playRound(playerSelection, computerSelection);
   }
 
-  winner(playerScore, computerScore); //Invoking function to check winner of 5 rounds
+  winner(playerScore, computerScore);
 };
 
-game();
+game(); //Invoking the game funciton
