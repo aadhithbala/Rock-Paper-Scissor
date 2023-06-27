@@ -1,5 +1,8 @@
 'use strict';
 
+let playerScore = 0;
+let computerScore = 0;
+
 const getComputerChoice = function () {
   const computerChoice = Math.trunc(Math.random() * 3);
 
@@ -26,16 +29,24 @@ const playRound = function (playerChoice, computerChoice) {
     (playerChoice === 'Scissor' && computerChoice === 'Paper') ||
     (playerChoice === 'Paper' && computerChoice === 'Rock')
   ) {
-    return `You Win! ${playerChoice} beats ${computerChoice}`;
+    console.log(`You Win! ${playerChoice} beats ${computerChoice}`);
+    return playerScore++;
   } else if (playerChoice === computerChoice) {
-    return `Tie! You both choose ${computerChoice}`;
+    console.log(`Tie! You both choose ${computerChoice}`);
   } else {
-    return `You Lose! ${computerChoice} beats ${playerChoice}`;
+    console.log(`You Lose! ${computerChoice} beats ${playerChoice}`);
+    return computerScore++;
   }
 };
 
-const computerSelection = getComputerChoice(); //Invoking Function for computer choice
+const game = function () {
+  for (let i = 1; i < 6; i++) {
+    const computerSelection = getComputerChoice(); //Invoking Function for computer choice
 
-const playerSelection = capitalize(prompt('Enter your choice:')); // Prompting the user for users choice
+    const playerSelection = capitalize(prompt('Enter your choice:')); // Prompting the user for users choice
 
-console.log(playRound(playerSelection, computerSelection));
+    playRound(playerSelection, computerSelection);
+  }
+};
+
+game();
