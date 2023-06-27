@@ -15,3 +15,7 @@
 2. Write a function that wiill take the user choice and it'll capitalize the first letter and return the value
 
 3. store the new value in the playerSelection variable
+
+### Comparing player and computer selections
+
+1.

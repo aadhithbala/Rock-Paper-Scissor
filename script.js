@@ -4,11 +4,11 @@ const getComputerChoice = function () {
   const computerChoice = Math.trunc(Math.random() * 3);
 
   if (computerChoice === 0) {
-    console.log('Rock');
+    return 'Rock';
   } else if (computerChoice === 1) {
-    console.log('Paper');
+    return 'Paper';
   } else if (computerChoice === 2) {
-    console.log('Scissor');
+    return 'Scissor';
   }
 };
 
@@ -20,6 +20,6 @@ const capitalize = function (playerChoice) {
   );
 };
 
-getComputerChoice(); //Invoking Function for computer choice
+const computerSelection = getComputerChoice(); //Invoking Function for computer choice
 
 const playerSelection = capitalize(prompt('Enter your choice:')); // Prompting the user for users choice
