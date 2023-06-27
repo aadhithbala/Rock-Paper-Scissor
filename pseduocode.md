@@ -18,4 +18,17 @@
 
 ### Comparing player and computer selections
 
-1.
+1. Write a function that will take both player and computer choice, using if else statements it will
+   log the winner.
+
+2. It should also increment the score variable declared as a global variable.
+
+### Game Function
+
+1. This function will not take any input parameters.
+
+2. Invoke the playRound funtion five times using for loop
+
+3. It should print out the winner of the 5 rounds by comparing the scores in global variable
+
+4. We can invoke another function that can take the two scores as input
