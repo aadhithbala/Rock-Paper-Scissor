@@ -20,6 +20,22 @@ const capitalize = function (playerChoice) {
   );
 };
 
+const playRound = function (playerChoice, computerChoice) {
+  if (
+    (playerChoice === 'Rock' && computerChoice === 'Scissor') ||
+    (playerChoice === 'Scissor' && computerChoice === 'Paper') ||
+    (playerChoice === 'Paper' && computerChoice === 'Rock')
+  ) {
+    return `You Win! ${playerChoice} beats ${computerChoice}`;
+  } else if (playerChoice === computerChoice) {
+    return `Tie! You both choose ${computerChoice}`;
+  } else {
+    return `You Lose! ${computerChoice} beats ${playerChoice}`;
+  }
+};
+
 const computerSelection = getComputerChoice(); //Invoking Function for computer choice
 
 const playerSelection = capitalize(prompt('Enter your choice:')); // Prompting the user for users choice
+
+console.log(playRound(playerSelection, computerSelection));
