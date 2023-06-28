@@ -4,7 +4,6 @@
 let playerScore = 0;
 let computerScore = 0;
 
-//Function to get computers choice - Rock, Paper or Scissor
 const getComputerChoice = function () {
   const computerChoice = Math.trunc(Math.random() * 3);
 
@@ -17,16 +16,14 @@ const getComputerChoice = function () {
   }
 };
 
-//Function to sanitize the user input to Capitalize the first letter
-const capitalize = function (playerChoice) {
-  const playerChoiceLowerCase = playerChoice.toLowerCase();
+const capitalizeUserInput = function (playerChoice) {
+  const playerChoiceLowerCase = playerChoice.toLowerCase(); //lowercases the user string for uniformity
   return (
     playerChoiceLowerCase.charAt(0).toUpperCase() +
     playerChoiceLowerCase.slice(1)
-  );
+  ); //returns sanitized userinput eg: userinput: lAsT => last => Last
 };
 
-//Function to play one round of game
 const playRound = function (playerChoice, computerChoice) {
   if (
     (playerChoice === 'Rock' && computerChoice === 'Scissor') ||
@@ -43,8 +40,7 @@ const playRound = function (playerChoice, computerChoice) {
   }
 };
 
-// Function to check the winner of 5 rounds
-const winner = function (playerScore, computerScore) {
+const checkWinner = function (playerScore, computerScore) {
   if (playerScore > computerScore) {
     console.log(
       `You Win! Your Score: ${playerScore}, Computer Score: ${computerScore}`
@@ -63,12 +59,12 @@ const game = function () {
   for (let i = 1; i < 6; i++) {
     const computerSelection = getComputerChoice();
 
-    const playerSelection = capitalize(prompt('Enter your choice:'));
+    const playerSelection = capitalizeUserInput(prompt('Enter your choice:'));
 
     playRound(playerSelection, computerSelection);
   }
 
-  winner(playerScore, computerScore);
+  checkWinner(playerScore, computerScore);
 };
 
 game(); //Invoking the game funciton
