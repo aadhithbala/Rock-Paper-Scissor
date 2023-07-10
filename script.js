@@ -7,6 +7,9 @@ let computerScore = 0;
 const threeButtons = document.querySelectorAll('button');
 const result = document.querySelector('.result');
 
+const playerScores = document.querySelector('.playerscore');
+const cpuScores = document.querySelector('.cpuscore');
+
 const getComputerChoice = function () {
   const computerChoice = Math.trunc(Math.random() * 3);
 
@@ -26,13 +29,14 @@ const playRound = function (playerChoice, computerChoice) {
     (playerChoice === 'Paper' && computerChoice === 'Rock')
   ) {
     result.textContent = `You Win! ${playerChoice} beats ${computerChoice}`;
-    return playerScore++;
+    playerScore++;
   } else if (playerChoice === computerChoice) {
     result.textContent = `Tie! You both choose ${computerChoice}`;
-    return playerScore++ && computerScore++;
+    playerScore++;
+    computerScore++;
   } else {
     result.textContent = `You Lose! ${computerChoice} beats ${playerChoice}`;
-    return computerScore++;
+    computerScore++;
   }
 };
 
@@ -54,5 +58,8 @@ const checkWinner = function (playerScore, computerScore) {
 for (let i = 0; i < threeButtons.length; i++) {
   threeButtons[i].addEventListener('click', function () {
     playRound(threeButtons[i].textContent, getComputerChoice());
+
+    playerScores.innerHTML = `PLAYER SCORE <br>${playerScore}`;
+    cpuScores.innerHTML = `CPU SCORE <br>${computerScore}`;
   });
 }
