@@ -53,3 +53,15 @@ button:hover {
   font-weight: 500;
   margin-top: 100px;
 }
+
+.scores {
+  /* border: solid 2px thistle; */
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  text-align: center;
+  line-height: 1.8;
+  font-weight: 800;
+}
