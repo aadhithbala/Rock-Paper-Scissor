@@ -54,17 +54,3 @@ const checkWinner = function (playerScore, computerScore) {
       `Tie! Your Score: ${playerScore}, Computer Score: ${computerScore}`
     );
 };
-
-const game = function () {
-  for (let i = 1; i < 6; i++) {
-    const computerSelection = getComputerChoice();
-
-    const playerSelection = capitalizeUserInput(prompt('Enter your choice:'));
-
-    playRound(playerSelection, computerSelection);
-  }
-
-  checkWinner(playerScore, computerScore);
-};
-
-game(); //Invoking the game funciton
