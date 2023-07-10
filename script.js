@@ -16,14 +16,6 @@ const getComputerChoice = function () {
   }
 };
 
-const capitalizeUserInput = function (playerChoice) {
-  const playerChoiceLowerCase = playerChoice.toLowerCase(); //lowercases the user string for uniformity
-  return (
-    playerChoiceLowerCase.charAt(0).toUpperCase() +
-    playerChoiceLowerCase.slice(1)
-  ); //returns sanitized userinput eg: userinput: lAsT => last => Last
-};
-
 const playRound = function (playerChoice, computerChoice) {
   if (
     (playerChoice === 'Rock' && computerChoice === 'Scissor') ||
@@ -54,3 +46,11 @@ const checkWinner = function (playerScore, computerScore) {
       `Tie! Your Score: ${playerScore}, Computer Score: ${computerScore}`
     );
 };
+
+const threeButtons = document.querySelectorAll('button');
+
+for (let i = 0; i < threeButtons.length; i++) {
+  threeButtons[i].addEventListener('click', function () {
+    playRound(threeButtons[i].textContent, getComputerChoice());
+  });
+}
