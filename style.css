@@ -2,15 +2,22 @@
 
 body {
   background-color: #4caf50;
+  font-family: 'Inter', sans-serif;
 }
 
 h1 {
   font-size: 80px;
   color: rgb(26 46 5);
-  font-family: 'Inter', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
@@ -40,9 +47,9 @@ button:hover {
   border: solid 5px #fff;
 }
 
-.buttons {
-  display: flex;
-  gap: 50px;
-  align-items: center;
-  justify-content: center;
+.result {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 100px;
 }
