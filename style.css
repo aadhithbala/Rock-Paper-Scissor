@@ -18,10 +18,26 @@ button {
   cursor: pointer;
   width: 150px;
   height: 150px;
-  color: rgb(26 46 5);
+  color: #fff;
   font-size: 30px;
   font-weight: 600px;
   border-radius: 50%;
+  background-color: rgb(26 46 5);
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+  border-style: none;
+  cursor: pointer;
+  transform: scale(1.1);
+  width: 150px;
+  height: 150px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600px;
+  border-radius: 50%;
+  background-color: rgb(26 46 5);
+  border: solid 5px #fff;
 }
 
 .buttons {
