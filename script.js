@@ -1,17 +1,16 @@
 'use strict';
 
-// Global Variable to capture the scores
 let playerScore = 0;
 let computerScore = 0;
 
-const threeButtons = document.querySelectorAll('.btn-key');
+const rpsButton = document.querySelectorAll('.btn-key');
 const result = document.querySelector('.result');
 const reset = document.querySelector('.reset');
 const playerScores = document.querySelector('.playerscore');
 const cpuScores = document.querySelector('.cpuscore');
 const modal = document.querySelector('.modal-container');
 const overlay = document.querySelector('.overlay');
-const resultMessage = document.querySelector('.result-message');
+const gameOverMessage = document.querySelector('.gameover-message');
 
 const getComputerChoice = function () {
   const computerChoice = Math.trunc(Math.random() * 3);
@@ -46,32 +45,40 @@ const resetGame = function () {
   overlay.classList.add('hidden');
   playerScore = 0;
   computerScore = 0;
-  playerScores.innerHTML = `PLAYER SCORE <br>${playerScore}`;
-  cpuScores.innerHTML = `CPU SCORE <br>${computerScore}`;
+  updateScore();
   result.textContent = `Click on any buttons`;
 };
 
-for (let i = 0; i < threeButtons.length; i++) {
-  threeButtons[i].addEventListener('click', function () {
-    playRound(threeButtons[i].textContent, getComputerChoice());
+const checkWinner = function () {
+  if (computerScore === 5 && playerScore === 5) {
+    gameOverMessage.textContent = 'Tie';
+  } else if (computerScore === 5 && playerScore < 5) {
+    gameOverMessage.textContent = 'You Lost!';
+  } else if (computerScore < 5 && playerScore === 5) {
+    gameOverMessage.textContent = 'You Won!';
+  }
+};
 
-    playerScores.innerHTML = `PLAYER SCORE <br>${playerScore}`;
-    cpuScores.innerHTML = `CPU SCORE <br>${computerScore}`;
+const endGame = function () {
+  if (computerScore === 5 || playerScore === 5) {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+  }
 
-    if (computerScore === 5 || playerScore === 5) {
-      modal.classList.remove('hidden');
-      overlay.classList.remove('hidden');
-      if (computerScore === 5 && playerScore === 5) {
-        resultMessage.textContent = 'Tie';
-      } else if (computerScore === 5 && playerScore < 5) {
-        resultMessage.textContent = 'You Lost!';
-      } else if (computerScore < 5 && playerScore === 5) {
-        resultMessage.textContent = 'You Won!';
-      }
-    }
+  checkWinner();
+};
+
+const updateScore = function () {
+  playerScores.innerHTML = `PLAYER SCORE <br>${playerScore}`;
+  cpuScores.innerHTML = `CPU SCORE <br>${computerScore}`;
+};
+
+for (let i = 0; i < rpsButton.length; i++) {
+  rpsButton[i].addEventListener('click', function () {
+    playRound(rpsButton[i].textContent, getComputerChoice());
+    updateScore();
+    endGame();
   });
 }
-
-//play again button
 
 reset.addEventListener('click', resetGame);
