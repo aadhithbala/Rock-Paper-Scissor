@@ -41,12 +41,14 @@ const playRound = function (playerChoice, computerChoice) {
   }
 };
 
-const checkWinner = function (playerScore, computerScore) {
-  if (playerScore > computerScore) {
-    result.textContent = `You won the game`;
-  } else if (playerScore < computerScore) {
-    result.textContent = `You lost the game`;
-  } else result.textContent = `You both tied the game`;
+const resetGame = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+  playerScore = 0;
+  computerScore = 0;
+  playerScores.innerHTML = `PLAYER SCORE <br>${playerScore}`;
+  cpuScores.innerHTML = `CPU SCORE <br>${computerScore}`;
+  result.textContent = `Click on any buttons`;
 };
 
 for (let i = 0; i < threeButtons.length; i++) {
@@ -69,3 +71,7 @@ for (let i = 0; i < threeButtons.length; i++) {
     }
   });
 }
+
+//play again button
+
+reset.addEventListener('click', resetGame);
