@@ -7,9 +7,11 @@ let computerScore = 0;
 const threeButtons = document.querySelectorAll('.btn-key');
 const result = document.querySelector('.result');
 const reset = document.querySelector('.reset');
-
 const playerScores = document.querySelector('.playerscore');
 const cpuScores = document.querySelector('.cpuscore');
+const modal = document.querySelector('.modal-container');
+const overlay = document.querySelector('.overlay');
+const resultMessage = document.querySelector('.result-message');
 
 const getComputerChoice = function () {
   const computerChoice = Math.trunc(Math.random() * 3);
@@ -54,16 +56,16 @@ for (let i = 0; i < threeButtons.length; i++) {
     playerScores.innerHTML = `PLAYER SCORE <br>${playerScore}`;
     cpuScores.innerHTML = `CPU SCORE <br>${computerScore}`;
 
-    if (playerScore === 5 || computerScore === 5) {
-      checkWinner(playerScore, computerScore);
+    if (computerScore === 5 || playerScore === 5) {
+      modal.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+      if (computerScore === 5 && playerScore === 5) {
+        resultMessage.textContent = 'Tie';
+      } else if (computerScore === 5 && playerScore < 5) {
+        resultMessage.textContent = 'You Lost!';
+      } else if (computerScore < 5 && playerScore === 5) {
+        resultMessage.textContent = 'You Won!';
+      }
     }
   });
 }
-
-reset.addEventListener('click', function () {
-  playerScore = 0;
-  computerScore = 0;
-  playerScores.innerHTML = `PLAYER SCORE <br>${playerScore}`;
-  cpuScores.innerHTML = `CPU SCORE <br>${computerScore}`;
-  result.textContent = 'Click on any buttons';
-});
