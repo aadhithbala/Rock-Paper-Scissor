@@ -33,8 +33,6 @@ const playRound = function (playerChoice, computerChoice) {
     playerScore++;
   } else if (playerChoice === computerChoice) {
     result.textContent = `Tie! You both choose ${computerChoice}`;
-    playerScore++;
-    computerScore++;
   } else {
     result.textContent = `You Lose! ${computerChoice} beats ${playerChoice}`;
     computerScore++;
