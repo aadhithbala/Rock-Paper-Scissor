@@ -86,7 +86,6 @@ button:hover {
 }
 
 .scores {
-  /* border: solid 2px thistle; */
   font-size: 20px;
   display: flex;
   justify-content: space-between;
@@ -95,4 +94,22 @@ button:hover {
   text-align: center;
   line-height: 1.8;
   font-weight: 800;
+}
+
+.modal-container {
+  /* border: solid 3px thistle; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4caf50;
+  border-radius: 25px;
+  padding: 10px;
+  box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.5);
 }
