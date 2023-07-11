@@ -47,6 +47,37 @@ button:hover {
   border: solid 5px #fff;
 }
 
+.reset {
+  background-color: rgb(26 46 5);
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.reset-wrapper > .reset:hover {
+  background-color: rgb(26 46 5);
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.reset-icon {
+  stroke: #4caf50;
+  transform: scale(0.8);
+}
+
+.reset-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .result {
   text-align: center;
   font-size: 30px;
