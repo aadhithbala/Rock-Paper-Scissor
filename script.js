@@ -42,17 +42,10 @@ const playRound = function (playerChoice, computerChoice) {
 
 const checkWinner = function (playerScore, computerScore) {
   if (playerScore > computerScore) {
-    console.log(
-      `You Win! Your Score: ${playerScore}, Computer Score: ${computerScore}`
-    );
+    result.textContent = `You won the game`;
   } else if (playerScore < computerScore) {
-    console.log(
-      `You Lose! Your Score: ${playerScore}, Computer Score: ${computerScore}`
-    );
-  } else
-    console.log(
-      `Tie! Your Score: ${playerScore}, Computer Score: ${computerScore}`
-    );
+    result.textContent = `You lost the game`;
+  } else result.textContent = `You both tied the game`;
 };
 
 for (let i = 0; i < threeButtons.length; i++) {
@@ -61,5 +54,9 @@ for (let i = 0; i < threeButtons.length; i++) {
 
     playerScores.innerHTML = `PLAYER SCORE <br>${playerScore}`;
     cpuScores.innerHTML = `CPU SCORE <br>${computerScore}`;
+
+    if (playerScore === 5 || computerScore === 5) {
+      checkWinner(playerScore, computerScore);
+    }
   });
 }
