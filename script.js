@@ -4,8 +4,9 @@
 let playerScore = 0;
 let computerScore = 0;
 
-const threeButtons = document.querySelectorAll('button');
+const threeButtons = document.querySelectorAll('.btn-key');
 const result = document.querySelector('.result');
+const reset = document.querySelector('.reset');
 
 const playerScores = document.querySelector('.playerscore');
 const cpuScores = document.querySelector('.cpuscore');
@@ -60,3 +61,11 @@ for (let i = 0; i < threeButtons.length; i++) {
     }
   });
 }
+
+reset.addEventListener('click', function () {
+  playerScore = 0;
+  computerScore = 0;
+  playerScores.innerHTML = `PLAYER SCORE <br>${playerScore}`;
+  cpuScores.innerHTML = `CPU SCORE <br>${computerScore}`;
+  result.textContent = 'Click on any buttons';
+});
